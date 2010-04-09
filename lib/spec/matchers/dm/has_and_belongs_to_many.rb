@@ -32,7 +32,7 @@ module DataMapperMatchers
     end
   end
 
-  def has_and_belongs_to_many(name)
+  def have_and_belong_to_many(name)
     HasAndBelongsToMany.new(name)
   end
 end

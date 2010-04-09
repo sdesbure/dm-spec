@@ -36,12 +36,12 @@ module DataMapperMatchers
     end
   end
 
-  def has_many(name, options = Hash.new)
+  def have_many(name, options = Hash.new)
     defaults = {:min => 0, :max => 1.0 / 0}
     HasMany.new(name, defaults.merge(options))
   end
 
-  def has_one(name, options = Hash.new)
+  def have_one(name, options = Hash.new)
     defaults = {:min => 1, :max => 1}
     HasMany.new(name, defaults.merge(options))
   end

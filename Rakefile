@@ -7,6 +7,8 @@ EMAIL = "knava.bestvinensis@gmail.com"
 HOMEPAGE = "http://101Ideas.cz/"
 SUMMARY = "RSpec matchers for DataMapper."
 GEM_VERSION = "0.9.10"
+SUDO = "sudo"
+RUBY = "ruby"
 
 spec = Gem::Specification.new do |s|
   s.name = GEM_NAME

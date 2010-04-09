@@ -36,7 +36,7 @@ module DataMapperMatchers
     end
   end
 
-  def belongs_to(name)
+  def belong_to(name)
     BelongsTo.new(name)
   end
 end

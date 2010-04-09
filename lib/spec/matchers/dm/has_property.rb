@@ -9,10 +9,10 @@ module DataMapperMatchers
       @expected = expected
     end
     
-    # Category.should has_property(:id)
+    # Category.should define_property(:id)
     def matches?(model)
       @model = model
-      return @model.properties.has_property?(@expected)
+      return @model.properties.named?(@expected)
     end
     
     def description
@@ -21,15 +21,15 @@ module DataMapperMatchers
     
     def failure_message
       properties = @model.properties.entries.map { |property| property.name }
-      "expected to has property #@expected, but has just the following properties: #{properties}"
+      "expected to define property #@expected, but has just the following properties: #{properties}"
     end
     
     def negative_failure_message
-      "expected to not has property #@expected, but had"
+      "expected not to define property #@expected, but had"
     end
   end
 
-  def has_property(expected)
+  def have_property(expected)
     HasProperty.new(expected)
   end
 end
