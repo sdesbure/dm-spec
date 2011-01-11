@@ -25,32 +25,30 @@ spec = Gem::Specification.new do |s|
   s.files = %w(LICENSE README.textile Rakefile) + Dir.glob("{lib,spec,app,public,stubs}/**/*")
 end
 
-Rake::GemPackageTask.new(spec) do |pkg|
-  pkg.gem_spec = spec
-end
+#Rake::GemPackageTask.new(spec) do |pkg|
+#  pkg.gem_spec = spec
+#end
 
-desc "Create a gemspec file"
-task :gemspec do
-  File.open("#{GEM_NAME}.gemspec", "w") do |file|
-    file.puts spec.to_ruby
-  end
-end
+#desc "Create a gemspec file"
+#task :gemspec do
+#  File.open("#{GEM_NAME}.gemspec", "w") do |file|
+#    file.puts spec.to_ruby
+#  end
+#end
 
-def sudo_gem(cmd)
-  sh "#{SUDO} #{RUBY} -S gem #{cmd}", :verbose => false
-end
+#def sudo_gem(cmd)
+#  sh "#{SUDO} #{RUBY} -S gem #{cmd}", :verbose => false
+#end
 
-desc "Install #{GEM_NAME} #{GEM_VERSION}"
-task :install => [ :package ] do
-  sudo_gem "install --local pkg/#{GEM_NAME}-#{GEM_VERSION} --no-update-sources"
-end
+#desc "Install #{GEM_NAME} #{GEM_VERSION}"
+#task :install => [ :package ] do
+#  sudo_gem "install --local pkg/#{GEM_NAME}-#{GEM_VERSION} --no-update-sources"
+#end
 
-desc "Uninstall #{GEM_NAME} #{GEM_VERSION}"
-task :uninstall => [ :clobber ] do
-  sudo_gem "uninstall #{GEM_NAME} -v#{GEM_VERSION} -Ix"
-end
+#desc "Uninstall #{GEM_NAME} #{GEM_VERSION}"
+#task :uninstall => [ :clobber ] do
+#  sudo_gem "uninstall #{GEM_NAME} -v#{GEM_VERSION} -Ix"
+#end
 
-require 'spec/rake/spectask'
-desc 'Default: run spec examples'
-task :default => 'spec'
-
+require 'bundler'
+Bundler::GemHelper.install_tasks
