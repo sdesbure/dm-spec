@@ -12,7 +12,7 @@ Gem::Specification.new do |s|
   s.summary     = %q{RSpec matchers for DataMapper}
   s.description = %q{RSpec matchers for DataMapper}
 
-  s.rubyforge_project = "dm-spec2"
+  #s.rubyforge_project = "dm-spec2"
 
   s.files         = `git ls-files`.split("\n")
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
