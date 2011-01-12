@@ -16,7 +16,7 @@ module DataMapperMatchers
         @expected = expected
       end
     end
-    
+
     # Category.should has_timestamps(:id)
     def matches?(model)
       @model = model
@@ -34,22 +34,22 @@ module DataMapperMatchers
     def has_timestamps
       @expected.all { |method| model.new.respond_to?(method) }
     end
-    
+
     def description
       "has timestamps"
     end
-    
+
     def failure_message
       properties = @model.properties.entries.map { |timestamps| timestamps.name }
       "expected to has timestamps #@expected, but has just the following properties: #{properties}"
     end
-    
+
     def negative_failure_message
       "expected not to not timestamps #@expected, but had"
     end
   end
 
-  def has_timestamps(expected)
+  def have_timestamps(expected)
     HasTimestamps.new(expected)
   end
 end
